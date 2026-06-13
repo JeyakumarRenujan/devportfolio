@@ -24,7 +24,7 @@ const projectsData = [
     title: "Dam Safety Monitoring System",
     description:
       "IoT-based intelligent monitoring system for dam safety.",
-    technologies: ["ESP32", "IoT", "Firebase"],
+    technologies: ["ESP32", "IoT", "React"],
     github: "#",
     live: "#",
   },
