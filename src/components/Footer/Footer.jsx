@@ -26,7 +26,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-3xl font-bold text-cyan-400">
-          DevPortfolio
+          Portfolio
         </h2>
 
         <p className="text-gray-400 mt-3">
