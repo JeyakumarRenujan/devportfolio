@@ -21,19 +21,31 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 py-10 text-white">
+    <footer
+      className="
+        bg-[var(--card)]
+        border-t
+        border-[var(--accent)]
+        py-12
+        text-white
+      "
+    >
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 text-center">
 
-        <h2 className="text-3xl font-bold text-cyan-400">
+        {/* Logo */}
+        <h2 className="text-3xl font-bold text-[var(--primary)]">
           Portfolio
         </h2>
 
-        <p className="text-gray-400 mt-3">
-          Building modern web applications with passion.
+        {/* Description */}
+        <p className="text-[var(--text)] mt-4 max-w-xl mx-auto">
+          Building modern web applications with passion and creating
+          impactful digital experiences.
         </p>
 
-        <div className="flex gap-6 text-2xl mt-8">
+        {/* Social Links */}
+        <div className="flex justify-center gap-8 text-3xl mt-8">
 
           {socialLinks.map((link) => (
 
@@ -42,7 +54,13 @@ function Footer() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cyan-400 transition"
+              className="
+                text-[var(--heading)]
+                hover:text-[var(--secondary)]
+                hover:scale-110
+                transition
+                duration-300
+              "
             >
               {getIcon(link.icon)}
             </a>
@@ -51,7 +69,11 @@ function Footer() {
 
         </div>
 
-        <p className="text-gray-500 mt-10">
+        {/* Divider */}
+        <div className="h-px bg-[var(--accent)] my-8"></div>
+
+        {/* Copyright */}
+        <p className="text-[var(--text)]">
           © 2026 Renujan. All Rights Reserved.
         </p>
 

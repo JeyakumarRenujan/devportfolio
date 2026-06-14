@@ -5,42 +5,57 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="bg-slate-950 py-58 px-6 text-white"
+      className="bg-[var(--bg)] py-28 px-6 text-white scroll-mt-24"
     >
       <div className="max-w-5xl mx-auto">
 
+        {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-5xl font-bold text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-5xl font-bold text-center mb-16 text-[var(--heading)]"
         >
           Experience
         </motion.h2>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
 
           {experienceData.map((item) => (
 
-            <div
+            <motion.div
               key={item.id}
-              className="border-l-4 border-cyan-400 pl-6"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="
+                border-l-4
+                border-[var(--primary)]
+                pl-6
+              "
             >
-              <h3 className="text-cyan-400 text-xl font-bold">
+
+              {/* Year */}
+              <h3 className="text-[var(--secondary)] text-xl font-bold">
                 {item.year}
               </h3>
 
-              <h4 className="text-2xl mt-2">
+              {/* Position */}
+              <h4 className="text-2xl mt-2 text-[var(--heading)] font-semibold">
                 {item.title}
               </h4>
 
-              <p className="text-gray-400">
+              {/* Company */}
+              <p className="text-[var(--primary)] mt-1">
                 {item.company}
               </p>
 
-              <p className="mt-3 text-gray-300">
+              {/* Description */}
+              <p className="mt-3 text-[var(--text)] leading-7">
                 {item.description}
               </p>
-            </div>
+
+            </motion.div>
 
           ))}
 

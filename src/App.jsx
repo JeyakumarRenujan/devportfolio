@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="bg-slate-950">
+    <div className="bg-[var(--bg)] min-h-screen">
       <Navbar />
       <Hero />
       <About />
