@@ -4,7 +4,7 @@ function Education() {
   return (
     <section
       id="education"
-      className="bg-slate-900 py-28 px-6 text-white"
+      className="bg-slate-900 py-48 px-6 text-white"
     >
       <div className="max-w-5xl mx-auto">
 
