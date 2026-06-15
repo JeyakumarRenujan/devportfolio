@@ -1,25 +1,26 @@
 import { motion } from "framer-motion";
 import aboutData from "../../data/aboutData";
+import heroImage from "./hero.jpeg";
 
 function About() {
   return (
     <section
       id="about"
-      className="bg-[var(--card)] py-28 px-6 text-white scroll-mt-24"
+      className="bg-[var(--card)] min-h-screen flex items-center px-6 scroll-mt-24"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto w-full">
 
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-5xl font-bold text-center mb-16 text-[var(--heading)]"
+          className="text-5xl font-bold text-center mb-10 text-[var(--heading)]"
         >
           {aboutData.title}
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-14 items-center">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
 
           {/* Profile Image */}
           <motion.div
@@ -28,7 +29,7 @@ function About() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="src\components\About\hero.jpeg"
+              src={heroImage}
               alt="Profile"
               className="rounded-3xl shadow-xl w-full object-cover border-4 border-[var(--accent)]"
             />
@@ -41,13 +42,13 @@ function About() {
             transition={{ duration: 0.8 }}
           >
 
-            <p className="text-[var(--text)] leading-8 text-lg">
+            <p className="text-[var(--text)] leading-8 text-base">
               {aboutData.description}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-10">
+            <div className="grid grid-cols-3 gap-4 mt-8">
 
-              <div className="bg-[var(--bg)] rounded-xl p-5 text-center border border-[var(--accent)] hover:scale-105 transition duration-300">
+              <div className="bg-[var(--bg)] rounded-xl p-4 text-center border border-[var(--accent)] hover:scale-105 transition duration-300">
                 <h3 className="text-[var(--primary)] text-2xl font-bold">
                   {aboutData.experience}
                 </h3>
@@ -56,7 +57,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="bg-[var(--bg)] rounded-xl p-5 text-center border border-[var(--accent)] hover:scale-105 transition duration-300">
+              <div className="bg-[var(--bg)] rounded-xl p-4 text-center border border-[var(--accent)] hover:scale-105 transition duration-300">
                 <h3 className="text-[var(--primary)] text-2xl font-bold">
                   {aboutData.projects}
                 </h3>
@@ -65,7 +66,7 @@ function About() {
                 </p>
               </div>
 
-              <div className="bg-[var(--bg)] rounded-xl p-5 text-center border border-[var(--accent)] hover:scale-105 transition duration-300">
+              <div className="bg-[var(--bg)] rounded-xl p-4 text-center border border-[var(--accent)] hover:scale-105 transition duration-300">
                 <h3 className="text-[var(--primary)] text-2xl font-bold">
                   {aboutData.technologies}
                 </h3>
