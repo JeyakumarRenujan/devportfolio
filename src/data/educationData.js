@@ -10,7 +10,7 @@ const educationData = [
     id: 2,
     year: "2021",
     title: "G.C.E Advanced Level",
-    institution: "Jaffna Hindu College",
+    institution: "Puthukkudiyiruppu Central College",
   },
 ];
 
