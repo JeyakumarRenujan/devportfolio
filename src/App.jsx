@@ -8,10 +8,9 @@ import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-
 function App() {
   return (
-    <div className="bg-[var(--bg)] min-h-screen">
+    <div className="bg-[var(--bg)] min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
       <About />

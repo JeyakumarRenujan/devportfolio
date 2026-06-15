@@ -26,26 +26,53 @@ function Footer() {
         bg-[var(--card)]
         border-t
         border-[var(--accent)]
-        py-12
-        text-white
+        py-10
+        md:py-12
       "
     >
 
       <div className="max-w-7xl mx-auto px-6 text-center">
 
         {/* Logo */}
-        <h2 className="text-3xl font-bold text-[var(--primary)]">
+        <h2
+          className="
+            text-2xl
+            md:text-3xl
+            font-bold
+            text-[var(--primary)]
+          "
+        >
           Portfolio
         </h2>
 
         {/* Description */}
-        <p className="text-[var(--text)] mt-4 max-w-xl mx-auto">
-          Building modern web applications with passion and creating
-          impactful digital experiences.
+        <p
+          className="
+            text-[var(--text)]
+            text-sm
+            md:text-base
+            mt-4
+            max-w-xl
+            mx-auto
+            leading-7
+          "
+        >
+          Building modern web applications with passion and
+          creating impactful digital experiences.
         </p>
 
-        {/* Social Links */}
-        <div className="flex justify-center gap-8 text-3xl mt-8">
+        {/* Social Icons */}
+        <div
+          className="
+            flex
+            justify-center
+            gap-6
+            md:gap-8
+            text-2xl
+            md:text-3xl
+            mt-8
+          "
+        >
 
           {socialLinks.map((link) => (
 
@@ -56,8 +83,8 @@ function Footer() {
               rel="noopener noreferrer"
               className="
                 text-[var(--heading)]
-                hover:text-[var(--secondary)]
-                hover:scale-110
+                hover:text-[var(--primary)]
+                hover:-translate-y-1
                 transition
                 duration-300
               "
@@ -73,7 +100,13 @@ function Footer() {
         <div className="h-px bg-[var(--accent)] my-8"></div>
 
         {/* Copyright */}
-        <p className="text-[var(--text)]">
+        <p
+          className="
+            text-[var(--text)]
+            text-xs
+            md:text-sm
+          "
+        >
           © 2026 Renujan. All Rights Reserved.
         </p>
 
