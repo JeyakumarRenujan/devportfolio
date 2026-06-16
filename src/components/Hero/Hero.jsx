@@ -92,8 +92,10 @@ function Hero() {
           "
         >
 
+          {/* Download CV Button */}
           <a
-            href="#projects"
+            href="/Renujan_CV.pdf"
+            download
             className="
               w-full
               sm:w-auto
@@ -109,9 +111,10 @@ function Hero() {
               hover:scale-105
             "
           >
-            View Projects
+            Download CV
           </a>
 
+          {/* Contact Button */}
           <a
             href="#contact"
             className="
