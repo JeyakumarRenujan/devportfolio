@@ -2,10 +2,10 @@ const aboutData = {
   title: "About Me",
 
   description:
-    "I'm a final-year Computer Engineering undergraduate passionate about Full Stack Development and Artificial Intelligence. I enjoy building scalable web applications, solving real-world problems, and continuously learning modern technologies.",
+    "Final year Computer Engineering undergraduate at the University of Jaffna with a strong foundation in Software Engineering, Artificial Intelligence, Machine Learning, and problem solving. Proficient in C++, Python, Java, and modern web technologies, with hands on experience in developing software applications and academic projects. Passionate about leveraging programming skills, analytical thinking, and emerging technologies to solve real world challenges.",
 
-  experience: "1+ Years Learning",
-  projects: "10+ Projects",
+  experience: "Final Year",
+  projects: "7+ Projects",
   technologies: "15+ Technologies",
 };
 
