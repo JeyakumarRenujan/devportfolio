@@ -50,8 +50,6 @@ function Navbar() {
 
           <li><a href="#projects" className="hover:text-[var(--primary)]">Projects</a></li>
 
-          <li><a href="#research" className="hover:text-[var(--primary)]">Research</a></li>
-
           <li><a href="#experience" className="hover:text-[var(--primary)]">Experience</a></li>
 
           <li><a href="#education" className="hover:text-[var(--primary)]">Education</a></li>
@@ -104,10 +102,6 @@ function Navbar() {
 
             <li className="py-3">
               <a href="#projects" onClick={closeMenu}>Projects</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#research" onClick={closeMenu}>Research</a>
             </li>
 
             <li className="py-3">
