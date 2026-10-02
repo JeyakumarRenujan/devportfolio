@@ -2,15 +2,30 @@ import { motion, useReducedMotion } from "framer-motion";
 import { GraduationCap, FlaskConical, Milestone, Calendar, MapPin } from "lucide-react";
 import journeyData from "../../data/journeyData";
 
-function getTypeIcon(type) {
+function getTypeMeta(type) {
   switch (type) {
     case "Research":
-      return FlaskConical;
+      return {
+        icon: FlaskConical,
+        color: "from-orange-500 to-amber-500",
+        shadow: "shadow-orange-500/30",
+        badgeBg: "bg-orange-500/15 text-orange-400 border-orange-500/25",
+      };
     case "Project Milestone":
-      return Milestone;
+      return {
+        icon: Milestone,
+        color: "from-blue-600 to-cyan-500",
+        shadow: "shadow-blue-500/30",
+        badgeBg: "bg-blue-500/15 text-blue-400 border-blue-500/25",
+      };
     case "Education":
     default:
-      return GraduationCap;
+      return {
+        icon: GraduationCap,
+        color: "from-purple-600 to-indigo-500",
+        shadow: "shadow-purple-500/30",
+        badgeBg: "bg-purple-500/15 text-purple-400 border-purple-500/25",
+      };
   }
 }
 
@@ -30,28 +45,28 @@ function Journey() {
   return (
     <section
       id="journey"
-      className="pt-6 sm:pt-8 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg-alt)]/50 transition-colors duration-200 scroll-mt-20"
+      className="pt-6 sm:pt-8 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg-alt)]/30 transition-colors duration-200 scroll-mt-20"
     >
-      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10">
         {/* Section Header */}
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-2.5">
           <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-[var(--primary)]">
             Academic & Technical Timeline
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--heading)] tracking-tight">
             Education & Journey
           </h2>
-          <div className="w-12 h-1 bg-[var(--primary)] mx-auto rounded-full mt-1.5" />
-          <p className="text-sm sm:text-base text-[var(--text)] max-w-xl mx-auto mt-2">
+          <div className="w-12 h-1 bg-[var(--primary)] mx-auto rounded-full" />
+          <p className="text-sm sm:text-base text-[var(--text)] max-w-xl mx-auto">
             My university degree path, active research investigations, and practical engineering milestones.
           </p>
         </div>
 
-        {/* Timeline Container */}
-        <div className="relative border-l-2 border-[var(--border)] ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-10">
+        {/* Apple Activity / Fitness Timeline Rail */}
+        <div className="relative border-l-2 border-[var(--border)] ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-8 sm:space-y-10">
           {journeyData.map((item, idx) => {
-            const Icon = getTypeIcon(item.type);
-            const isResearch = item.type === "Research";
+            const meta = getTypeMeta(item.type);
+            const Icon = meta.icon;
 
             return (
               <motion.div
@@ -59,26 +74,24 @@ function Journey() {
                 {...anim(idx * 0.05)}
                 className="relative group"
               >
-                {/* Timeline Dot with Icon */}
+                {/* Timeline Apple Activity Ring Node */}
                 <div
-                  className={`absolute -left-[35px] sm:-left-[43px] top-1.5 w-8 h-8 rounded-full border-2 flex items-center justify-center transition duration-200 ${
-                    isResearch
-                      ? "bg-orange-500 border-white text-white shadow-md shadow-orange-500/30"
-                      : "bg-[var(--card)] border-[var(--primary)] text-[var(--primary)]"
-                  }`}
+                  className={`absolute -left-[37px] sm:-left-[45px] top-1.5 w-9 h-9 rounded-2xl bg-gradient-to-tr ${meta.color} flex items-center justify-center text-white shadow-lg ${meta.shadow} group-hover:scale-110 transition-transform duration-200`}
                   aria-hidden="true"
                 >
                   <Icon className="w-4 h-4" />
                 </div>
 
-                {/* Card Content */}
-                <div className="bg-[var(--card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)]/40 shadow-sm hover:shadow-md transition duration-200 space-y-3">
+                {/* Card Content - Inset Frosted Glass */}
+                <div className="bg-[var(--card)] backdrop-blur-2xl rounded-3xl p-6 sm:p-7 border border-[var(--border)] hover:border-[var(--primary)]/50 shadow-[var(--ios-card-shadow)] hover:shadow-xl transition-all duration-200 space-y-3.5">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--primary)] bg-[var(--accent)] px-3 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--primary)] bg-[var(--card-solid)]/70 px-3.5 py-1 rounded-full border border-[var(--border)]">
                       <Calendar className="w-3.5 h-3.5" />
                       {item.period}
                     </span>
-                    <span className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
+                    <span
+                      className={`text-xs font-semibold px-3 py-0.5 rounded-full border ${meta.badgeBg} uppercase tracking-wider`}
+                    >
                       {item.type}
                     </span>
                   </div>
@@ -97,7 +110,7 @@ function Journey() {
                   </p>
 
                   {item.highlights && item.highlights.length > 0 && (
-                    <ul className="pt-2 space-y-1.5 text-xs sm:text-sm text-[var(--text)] border-t border-[var(--border)]">
+                    <ul className="pt-2.5 space-y-1.5 text-xs sm:text-sm text-[var(--text)] border-t border-[var(--border)]">
                       {item.highlights.map((h, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className="text-[var(--primary)] font-bold mt-0.5">•</span>

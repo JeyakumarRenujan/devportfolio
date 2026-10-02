@@ -3,21 +3,42 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+    letter-spacing: -0.025em;
   }
 
   section {
-    scroll-margin-top: 85px;
+    scroll-margin-top: 80px;
   }
 
   :focus-visible {
     outline: 2px solid var(--primary);
-    outline-offset: 2px;
+    outline-offset: 3px;
+  }
+
+  /* iOS style sleek translucent scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(120, 120, 128, 0.25);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 120, 128, 0.45);
   }
 
   /* Accessibility: Prefers reduced motion */
@@ -31,42 +52,46 @@
   }
 }
 
-/* Light Theme Variables */
+/* Light Theme Variables (Apple iOS System Light) */
 :root {
-  --bg: #F8FAFC;
-  --bg-alt: #F1F5F9;
-  --card: #FFFFFF;
-  --card-hover: #F8FAFC;
-  --border: rgba(15, 23, 42, 0.1);
-  --border-hover: rgba(249, 115, 22, 0.45);
-  --heading: #0F172A;
-  --text: #475569;
-  --text-muted: #64748B;
-  --primary: #F97316;
-  --primary-hover: #EA580C;
-  --secondary: #FB923C;
-  --accent: rgba(249, 115, 22, 0.12);
-  --accent-glow: rgba(249, 115, 22, 0.2);
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(15, 23, 42, 0.08);
+  --bg: #F2F2F7;
+  --bg-alt: #E5E5EA;
+  --card: rgba(255, 255, 255, 0.78);
+  --card-solid: #FFFFFF;
+  --card-hover: rgba(255, 255, 255, 0.95);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(255, 149, 0, 0.45);
+  --heading: #000000;
+  --text: #3A3A3C;
+  --text-muted: #8E8E93;
+  --primary: #FF9500;
+  --primary-hover: #E08500;
+  --secondary: #FF9F0A;
+  --accent: rgba(255, 149, 0, 0.12);
+  --accent-glow: rgba(255, 149, 0, 0.25);
+  --glass-bg: rgba(242, 242, 247, 0.82);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --ios-card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
 }
 
-/* Dark Theme Variables (Default) */
+/* Dark Theme Variables (Apple iOS System Dark - OLED Black & Materials) */
 html.dark {
-  --bg: #0B0F17;
-  --bg-alt: #111726;
-  --card: #131B2A;
-  --card-hover: #192438;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(249, 115, 22, 0.45);
-  --heading: #F8FAFC;
-  --text: #94A3B8;
-  --text-muted: #64748B;
-  --primary: #F97316;
-  --primary-hover: #FB923C;
-  --secondary: #FDBA74;
-  --accent: rgba(249, 115, 22, 0.14);
-  --accent-glow: rgba(249, 115, 22, 0.25);
-  --glass-bg: rgba(19, 27, 42, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --bg: #000000;
+  --bg-alt: #0F0F11;
+  --card: rgba(28, 28, 30, 0.75);
+  --card-solid: #1C1C1E;
+  --card-hover: rgba(44, 44, 46, 0.85);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 149, 0, 0.55);
+  --heading: #FFFFFF;
+  --text: #EBEBF5;
+  --text-muted: #8E8E93;
+  --primary: #FF9500;
+  --primary-hover: #FFA224;
+  --secondary: #FFB340;
+  --accent: rgba(255, 149, 0, 0.16);
+  --accent-glow: rgba(255, 149, 0, 0.35);
+  --glass-bg: rgba(20, 20, 22, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --ios-card-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
 }
