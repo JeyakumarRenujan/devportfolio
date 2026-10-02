@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => {
@@ -12,29 +11,39 @@ function Navbar() {
   return (
     <nav
       className="
-      fixed
-      top-0
-      left-0
-      w-full
-      z-50
-      bg-[var(--bg)]
-      border-b
-      border-[var(--accent)]
-      shadow-md
-    "
+        fixed
+        top-0
+        left-0
+        w-full
+        bg-[var(--card)]
+        border-b
+        border-[var(--accent)]
+        shadow-sm
+        z-50
+      "
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          px-6
+          py-4
+          flex
+          items-center
+          justify-between
+        "
+      >
 
         {/* Logo */}
         <a
           href="#home"
           className="
-          text-3xl
-          font-bold
-          text-[var(--primary)]
-          hover:text-[var(--secondary)]
-          transition
-        "
+            text-2xl
+            font-bold
+            text-[var(--primary)]
+            hover:text-[var(--secondary)]
+            transition
+          "
         >
           Portfolio
         </a>
