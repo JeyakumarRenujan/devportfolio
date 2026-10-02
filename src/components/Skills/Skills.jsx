@@ -18,25 +18,28 @@ function Skills() {
     shouldReduceMotion
       ? {}
       : {
-          initial: { opacity: 0.9, y: 15 },
+          initial: { opacity: 0.95, y: 15 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true },
           transition: { duration: 0.4, delay },
         };
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg)] transition-colors duration-200">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section
+      id="skills"
+      className="pt-6 sm:pt-8 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg)] transition-colors duration-200 scroll-mt-20"
+    >
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         {/* Section Header */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-2">
           <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-[var(--primary)]">
             Technical Stack
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--heading)] tracking-tight">
             Skills & Technologies
           </h2>
-          <div className="w-12 h-1 bg-[var(--primary)] mx-auto rounded-full" />
-          <p className="text-sm sm:text-base text-[var(--text)] max-w-xl mx-auto">
+          <div className="w-12 h-1 bg-[var(--primary)] mx-auto rounded-full mt-1.5" />
+          <p className="text-sm sm:text-base text-[var(--text)] max-w-xl mx-auto mt-2">
             Core programming languages, AI/ML libraries, and full-stack engineering tools I use to build robust software.
           </p>
         </div>

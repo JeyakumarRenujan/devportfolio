@@ -65,23 +65,26 @@ function Projects() {
         };
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg)] transition-colors duration-200">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section
+      id="projects"
+      className="pt-6 sm:pt-8 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg)] transition-colors duration-200 scroll-mt-20"
+    >
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
         {/* Section Header */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-2">
           <p className="text-xs sm:text-sm font-bold tracking-widest uppercase text-[var(--primary)]">
             Featured Works & Engineering
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--heading)] tracking-tight">
             Projects & Research
           </h2>
-          <div className="w-12 h-1 bg-[var(--primary)] mx-auto rounded-full" />
-          <p className="text-sm sm:text-base text-[var(--text)] max-w-2xl mx-auto">
+          <div className="w-12 h-1 bg-[var(--primary)] mx-auto rounded-full mt-1.5" />
+          <p className="text-sm sm:text-base text-[var(--text)] max-w-2xl mx-auto mt-2">
             Practical AI models, research implementations, and full-stack platforms with verified source code.
           </p>
 
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-3">
             {categories.map((cat) => {
               const isSelected = selectedCategory === cat;
               return (
