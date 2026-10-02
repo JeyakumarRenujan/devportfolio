@@ -112,18 +112,21 @@ function Projects() {
 
               </div>
 
-              {/* Button */}
-              <div>
+              {/* Buttons */}
+              <div
+                className="
+                  flex
+                  flex-col
+                  sm:flex-row
+                  gap-3
+                "
+              >
 
                 <a
                   href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="
-                    block
-                    sm:inline-block
                     text-center
-                    px-6
+                    px-4
                     py-3
                     rounded-lg
                     bg-[var(--primary)]
@@ -134,6 +137,24 @@ function Projects() {
                   "
                 >
                   GitHub
+                </a>
+
+                <a
+                  href={project.live}
+                  className="
+                    text-center
+                    px-4
+                    py-3
+                    rounded-lg
+                    border
+                    border-[var(--primary)]
+                    text-[var(--heading)]
+                    hover:bg-[var(--accent)]
+                    transition
+                    duration-300
+                  "
+                >
+                  Live Demo
                 </a>
 
               </div>
