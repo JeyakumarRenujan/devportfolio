@@ -14,7 +14,11 @@
   }
 
   section {
-    scroll-margin-top: 96px;
+    scroll-margin-top: 84px;
+  }
+
+  .h-18 {
+    height: 4.5rem; /* 72px */
   }
 
   :focus-visible {
