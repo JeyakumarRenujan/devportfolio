@@ -1,8 +1,11 @@
 const heroData = {
-  name: "Renujan",
-  role: "Full Stack Developer & AI/ML Enthusiast",
-  description:
-    "Final-year Computer Engineering undergraduate passionate about building scalable web applications and AI-powered solutions.",
+  fullName: "Jeyakumar Renujan",
+  role: "AI/ML & Full-Stack Developer",
+  subRole: "Final-Year Computer Engineering Undergraduate • University of Jaffna",
+  valueStatement:
+    "Computer Engineering undergraduate passionate about building applied AI/NLP systems, computer vision models, and scalable full-stack web applications.",
+  currentWork:
+    "Sentiment and Intent Detection in Romanized Tamil-English code-mixed text (MuRIL)",
 };
 
 export default heroData;

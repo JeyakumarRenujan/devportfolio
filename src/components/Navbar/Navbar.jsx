@@ -1,143 +1,170 @@
-import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { Sun, Moon, Menu, X, FileText } from "lucide-react";
+import navLinks from "../../data/navLinks";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [isDark, setIsDark] = useState(true);
+
+  // Sync theme state with DOM
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setIsDark(isDarkMode);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    if (newTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
+  // Scrollspy for active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map((link) => link.href.substring(1));
+      const scrollPosition = window.scrollY + 120;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
   return (
-    <nav
-      className="
-        fixed
-        top-0
-        left-0
-        w-full
-        bg-[var(--card)]
-        border-b
-        border-[var(--accent)]
-        shadow-sm
-        z-50
-      "
-    >
-      <div
-        className="
-          max-w-7xl
-          mx-auto
-          px-6
-          py-4
-          flex
-          items-center
-          justify-between
-        "
-      >
-
-        {/* Logo */}
+    <header className="fixed top-0 left-0 w-full z-50 transition-colors duration-200 bg-[var(--glass-bg)] backdrop-blur-md border-b border-[var(--border)] shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+        {/* Brand / Logo */}
         <a
           href="#home"
-          className="
-            text-2xl
-            font-bold
-            text-[var(--primary)]
-            hover:text-[var(--secondary)]
-            transition
-          "
+          className="flex items-center gap-2 group focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded-lg p-1"
+          aria-label="Jeyakumar Renujan Home"
         >
-          Portfolio
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md shadow-orange-500/20 group-hover:scale-105 transition duration-200">
+            JR
+          </div>
+          <span className="font-extrabold text-lg sm:text-xl tracking-tight text-[var(--heading)] group-hover:text-[var(--primary)] transition duration-200">
+            Jeyakumar <span className="text-[var(--primary)]">Renujan</span>
+          </span>
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 font-medium text-[var(--heading)]">
+        <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                className={`px-3 py-2 rounded-lg text-sm font-semibold transition duration-200 ${
+                  isActive
+                    ? "text-[var(--primary)] bg-[var(--accent)]"
+                    : "text-[var(--heading)] hover:text-[var(--primary)] hover:bg-[var(--accent)]/50"
+                }`}
+              >
+                {link.title}
+              </a>
+            );
+          })}
 
-          <li><a href="#home" className="hover:text-[var(--primary)]">Home</a></li>
+          <div className="h-5 w-px bg-[var(--border)] mx-2" aria-hidden="true" />
 
-          <li><a href="#about" className="hover:text-[var(--primary)]">About</a></li>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-[var(--heading)] hover:text-[var(--primary)] hover:bg-[var(--accent)] transition duration-200"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            type="button"
+          >
+            {isDark ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
+          </button>
 
-          <li><a href="#skills" className="hover:text-[var(--primary)]">Skills</a></li>
+          {/* Quick CV Button */}
+          <a
+            href="/Jeyakumar_Renujan_CV.pdf"
+            download
+            className="ml-2 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-[var(--primary)] text-white hover:bg-[var(--primary-hover)] shadow-sm hover:shadow-orange-500/20 transition duration-200"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            CV
+          </a>
+        </nav>
 
-          <li><a href="#projects" className="hover:text-[var(--primary)]">Projects</a></li>
+        {/* Mobile Actions: Theme Toggle + Menu Button */}
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-[var(--heading)] hover:text-[var(--primary)] hover:bg-[var(--accent)] transition duration-200"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            type="button"
+          >
+            {isDark ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
+          </button>
 
-          <li><a href="#research" className="hover:text-[var(--primary)]">Research</a></li>
-
-          <li><a href="#experience" className="hover:text-[var(--primary)]">Experience</a></li>
-
-          <li><a href="#education" className="hover:text-[var(--primary)]">Education</a></li>
-
-          <li><a href="#contact" className="hover:text-[var(--primary)]">Contact</a></li>
-
-        </ul>
-
-        {/* Mobile Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="
-          md:hidden
-          text-2xl
-          text-[var(--primary)]
-        "
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 rounded-lg text-[var(--heading)] hover:text-[var(--primary)] hover:bg-[var(--accent)] transition duration-200"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            type="button"
+          >
+            {menuOpen ? <X className="w-6 h-6 text-[var(--primary)]" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-
+      {/* Mobile Menu Drawer */}
       {menuOpen && (
-
-        <div
-          className="
-          md:hidden
-          bg-[var(--card)]
-          border-t
-          border-[var(--accent)]
-          shadow-lg
-        "
-        >
-
-          <ul className="flex flex-col text-center py-4">
-
-            <li className="py-3">
-              <a href="#home" onClick={closeMenu}>Home</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#about" onClick={closeMenu}>About</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#skills" onClick={closeMenu}>Skills</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#projects" onClick={closeMenu}>Projects</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#research" onClick={closeMenu}>Research</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#experience" onClick={closeMenu}>Experience</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#education" onClick={closeMenu}>Education</a>
-            </li>
-
-            <li className="py-3">
-              <a href="#contact" onClick={closeMenu}>Contact</a>
-            </li>
-
-          </ul>
-
+        <div className="md:hidden bg-[var(--card)] border-b border-[var(--border)] px-4 py-5 shadow-xl transition-all animate-in fade-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col gap-1.5" aria-label="Mobile Navigation">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className={`px-4 py-3 rounded-xl text-base font-semibold transition duration-200 ${
+                    isActive
+                      ? "text-[var(--primary)] bg-[var(--accent)]"
+                      : "text-[var(--heading)] hover:text-[var(--primary)] hover:bg-[var(--accent)]/50"
+                  }`}
+                >
+                  {link.title}
+                </a>
+              );
+            })}
+            <a
+              href="/Jeyakumar_Renujan_CV.pdf"
+              download
+              onClick={closeMenu}
+              className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-[var(--primary)] text-white hover:bg-[var(--primary-hover)] transition duration-200"
+            >
+              <FileText className="w-4 h-4" />
+              Download CV
+            </a>
+          </nav>
         </div>
-
       )}
-
-    </nav>
+    </header>
   );
 }
 

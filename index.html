@@ -1,42 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeyakumar Renujan | AI/ML & Full-Stack Developer</title>
     <meta
       name="description"
-      content="Renujan - Full Stack Developer Portfolio showcasing projects, skills, education and experience."
+      content="Computer Engineering undergraduate building AI/NLP systems and full-stack web apps."
     />
-
     <meta
       name="keywords"
-      content="Renujan, Portfolio, Full Stack Developer, React, JavaScript, AI, ML, Software Engineer"
+      content="Jeyakumar Renujan, Portfolio, AI/ML, NLP, Computer Vision, Full-Stack Developer, MuRIL, YOLO11s, React, Node.js, Computer Engineering, University of Jaffna"
     />
+    <meta name="author" content="Jeyakumar Renujan" />
 
-    <meta
-      name="author"
-      content="Renujan"
-    />
-
-    <meta
-      property="og:title"
-      content="Renujan | Full Stack Developer"
-    />
-
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jeyakumar Renujan | AI/ML & Full-Stack Developer" />
     <meta
       property="og:description"
-      content="Portfolio of Renujan showcasing software engineering projects and skills."
+      content="Computer Engineering undergraduate building AI/NLP systems and full-stack web apps."
+    />
+    <meta property="og:url" content="https://renuportfolio.vercel.app/" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/favicon.png" />
+
+    <!-- Google Fonts: Outfit (Headings) & Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
     />
 
-    <meta
-      property="og:type"
-      content="website"
-    />
-
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Renujan | Portfolio</title>
+    <!-- Theme initialization script to prevent flash -->
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body>
+  <body class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-200 antialiased selection:bg-orange-500 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

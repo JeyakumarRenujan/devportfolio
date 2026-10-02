@@ -3,24 +3,22 @@ import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
-import Research from "./components/Research/Research";
-import Experience from "./components/Experience/Experience";
-import Education from "./components/Education/Education";
+import Journey from "./components/Journey/Journey";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="bg-[var(--bg)] min-h-screen overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] transition-colors duration-200">
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Research />
-      <Experience />
-      <Education />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Journey />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
