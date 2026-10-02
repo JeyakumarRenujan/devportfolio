@@ -1,26 +1,8 @@
 const projectsData = [
   {
     id: 1,
-    title: "Sentiment & Intent Detection in Code-Mixed Text",
-    badge: "NLP Research Flagship",
-    category: "AI/ML",
-    featured: true,
-    summary:
-      "Multi-task contextual NLP framework for Romanized Tamil-English social communication utilizing fine-tuned MuRIL.",
-    problem:
-      "Analyzing Romanized Tamil-English text suffers from informal phonetic spellings, severe class imbalance, and a scarcity of benchmark annotated corpora.",
-    result:
-      "Built a joint multi-task classification pipeline leveraging MuRIL embeddings, achieving [add accuracy / F1-score here] on benchmark test sets.",
-    technologies: ["Python", "PyTorch", "MuRIL", "Transformers", "NLP", "Multi-Task Learning"],
-    github: "https://github.com/JeyakumarRenujan",
-    live: null,
-  },
-  {
-    id: 2,
     title: "Smart Supermarket Product Identification",
-    badge: "Computer Vision",
     category: "AI/ML",
-    featured: true,
     summary:
       "Computer vision identification and automated inventory auditing system powered by a fine-tuned YOLO11s model.",
     problem:
@@ -32,11 +14,9 @@ const projectsData = [
     live: null,
   },
   {
-    id: 3,
+    id: 2,
     title: "Me Plus (Me+) Freelancer Workspace",
-    badge: "Full-Stack System",
     category: "Full-Stack",
-    featured: true,
     summary:
       "Unified multi-client task management platform for freelancers to organize projects, milestones, time tracking, and invoices.",
     problem:
@@ -48,11 +28,9 @@ const projectsData = [
     live: null,
   },
   {
-    id: 4,
+    id: 3,
     title: "Intelligent Dam Safety System",
-    badge: "IoT & Automation",
     category: "IoT/Embedded",
-    featured: true,
     summary:
       "Embedded IoT reservoir hazard monitoring system with sensor-driven water level forecasting and automated spillway gate control.",
     problem:
@@ -64,11 +42,9 @@ const projectsData = [
     live: null,
   },
   {
-    id: 5,
+    id: 4,
     title: "Connectify Video Conferencing",
-    badge: "WebRTC Real-Time",
     category: "Full-Stack",
-    featured: false,
     summary:
       "Full-stack WebRTC audio/video calling application with room mesh streaming, screen sharing, and Socket.IO signaling.",
     problem:
@@ -80,11 +56,9 @@ const projectsData = [
     live: null,
   },
   {
-    id: 6,
+    id: 5,
     title: "AuthFlow Authentication Platform",
-    badge: "Security & IAM",
     category: "Full-Stack",
-    featured: false,
     summary:
       "Hardened MERN authentication service with JWT token rotation, bcrypt password hashing, and role-based access control.",
     problem:
@@ -96,11 +70,9 @@ const projectsData = [
     live: null,
   },
   {
-    id: 7,
+    id: 6,
     title: "Hostel Management System",
-    badge: "Web Application",
     category: "Full-Stack",
-    featured: false,
     summary:
       "Role-based administrative web portal streamlining student boarding, room allocations, warden oversight, and complaint resolution.",
     problem:
@@ -112,11 +84,9 @@ const projectsData = [
     live: null,
   },
   {
-    id: 8,
+    id: 7,
     title: "Smart Load - Phone Reload System",
-    badge: "Desktop Application",
     category: "IoT/Embedded",
-    featured: false,
     summary:
       "Desktop GUI mobile phone reload and transaction tracking system built with C++ in Visual Studio with input validation.",
     problem:

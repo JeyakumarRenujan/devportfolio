@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,12 +34,20 @@
       rel="stylesheet"
     />
 
-    <!-- Enforce light theme only -->
+    <!-- Theme initialization script to prevent flash -->
     <script>
-      document.documentElement.classList.remove('dark');
-      try {
-        localStorage.removeItem('theme');
-      } catch (e) {}
+      (function() {
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
     </script>
   </head>
   <body class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-200 antialiased selection:bg-orange-500 selection:text-white">
