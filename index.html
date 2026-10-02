@@ -34,20 +34,12 @@
       rel="stylesheet"
     />
 
-    <!-- Theme initialization script: Always default to light theme on all PCs and phones -->
+    <!-- Enforce light theme only -->
     <script>
-      (function() {
-        try {
-          const stored = localStorage.getItem('theme');
-          if (stored === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        } catch (e) {
-          document.documentElement.classList.remove('dark');
-        }
-      })();
+      document.documentElement.classList.remove('dark');
+      try {
+        localStorage.removeItem('theme');
+      } catch (e) {}
     </script>
   </head>
   <body class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-200 antialiased selection:bg-orange-500 selection:text-white">
