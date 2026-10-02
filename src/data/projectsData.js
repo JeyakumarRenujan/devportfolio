@@ -68,16 +68,6 @@ const projectsData = [
     github: "https://github.com/JeyakumarRenujan",
     live: "https://renuportfolio.vercel.app/",
   },
-
-  {
-    id: 8,
-    title: "Sentiment and Intent Detection in Code-Mixed Text",
-    description:
-      "Developing a multi-task NLP framework for analyzing Romanized Tamil-English code-mixed text. Utilizing MuRIL-based contextual representations for joint sentiment and intent classification. Investigating challenges in code-mixed text processing, including class imbalance and limited annotated data, addressing the lack of effective NLP solutions for under-resourced Romanized Tamil code-mixed communication.",
-    technologies: ["Python", "PyTorch", "MuRIL", "NLP", "Multi-Task Learning"],
-    github: "https://github.com/JeyakumarRenujan",
-    live: "https://renuportfolio.vercel.app/",
-  },
 ];
 
 export default projectsData;
